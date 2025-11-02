@@ -9,6 +9,7 @@ import StoneEngine from "./assets/Img/StoneEngine.png";
 import CiteDesPixels from "./assets/Img/Cite_Des_Pixels.png";
 import StarCluster from "./assets/Img/StarCluster.png";
 import CommingSoon from "./assets/Img/CommingSoon.png";
+import StealSimulator from "./assets/Img/Steal_Simulator.png";
 import React from "react";
 
 function UCaveModal(props) {
@@ -50,6 +51,52 @@ function UCaveModal(props) {
 
                 <div className="text-center">
                     <a href="https://rouesoify.itch.io/u-cave" target="_blank" className="btn btn-primary">Lien Itch.io</a>
+                </div>
+            </Modal.Body>
+            <Modal.Footer>
+                <Button onClick={props.onHide}>Close</Button>
+            </Modal.Footer>
+        </Modal>
+    );
+}
+
+function StealSimulatorModal(props) {
+    return (
+        <Modal
+            {...props}
+            size="lg"
+            aria-labelledby="contained-modal-title-vcenter"
+            centered
+        >
+            <Modal.Header>
+                <Modal.Title id="contained-modal-title-vcenter" className="text-white">
+                    Steal Simulator
+                </Modal.Title>
+            </Modal.Header>
+            <Modal.Body>
+                <div className="text-center">
+                    <iframe width="560" height="315" src="https://www.youtube.com/embed/B6lMD2aai4w?si=PDBHz_MDiIW4ioJi"
+                            title="YouTube video player" frameBorder="0"
+                            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                            referrerPolicy="strict-origin-when-cross-origin"
+                            allowFullScreen>
+                    </iframe>
+                </div>
+                <p className="text-white modal-text">
+                    Ce projet scolaire avait pour objectif de nous apprendre l'utilisation des event dispatcher et des interfaces dans Unreal Engine 5.
+                    J'ai choisi de recréer le jeu Thief Simulator car son système d'interaction avec l'environnement se prêtait bien à l'apprentissage de ces concepts.<br/><br/>
+
+                    Le joueur incarne un voleur qui doit s'introduire dans des un magasin de voitures pour y dérober des objets de valeur.
+                    J'ai mis en place des mécaniques d'infiltration avec des caméras de sécurité, des alarmes, mais aussi des systèmes d'interaction variés pour fouiller les lieux et voler les objets.<br/><br/>
+
+                    Ce projet m'a permis de me familiariser avec les Blueprints d'Unreal Engine 5, en utilisant intensivement les event dispatcher pour gérer les interactions entre les différents éléments du jeu.<br/><br/>
+
+                    Moteur: Unreal<br/>
+                    Durée: 72h
+                </p>
+
+                <div className="text-center">
+                    <a href="https://urukagall.itch.io/steal-simulator" target="_blank" className="btn btn-primary">Lien Itch.io</a>
                 </div>
             </Modal.Body>
             <Modal.Footer>
@@ -315,6 +362,7 @@ function Project() {
     const [cDPModalShow, setCDPModalShow] = React.useState(false);
     const [starClusterModalShow, setStarClusterModalShow] = React.useState(false);
     const [portalModalShow, setPortalModalShow] = React.useState(false);
+    const [stealSimulator, setStealSimulator] = React.useState(false);
 
   return (
     <>
@@ -342,6 +390,10 @@ function Project() {
         <PortalModal
             show={portalModalShow}
             onHide={() => setPortalModalShow(false)}
+        />
+        <StealSimulatorModal
+            show={stealSimulator}
+            onHide={() => setStealSimulator(false)}
         />
 
         <div id="projet" className="d-flex justify-content-center align-items-center flex-column padding-part">
@@ -405,6 +457,13 @@ function Project() {
                         title="Stage (2025)"
                         image={CommingSoon}
                         description="Comming soon"
+                    />
+                    <ProjectCard
+                        title="Steal Simulator (Unreal Engine 5)"
+                        image={StealSimulator}
+                        description="Une reconstitution du jeu Thief Simulator sur Unreal Engine en Blueprints, pour apprend les Event dispatcher et les interfaces."
+                        onClick={() => setStealSimulator(true)}
+                        tags={["Unreal", "Blueprint"]}
                     />
                 </div>
             </div>
