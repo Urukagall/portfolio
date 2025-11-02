@@ -461,7 +461,7 @@ function Project() {
                     <ProjectCard
                         title="Steal Simulator (Unreal Engine 5)"
                         image={StealSimulator}
-                        description="Une reconstitution du jeu Thief Simulator sur Unreal Engine en Blueprints, pour apprend les Event dispatcher et les interfaces."
+                        description="Une reconstitution du jeu Thief Simulator sur Unreal Engine en Blueprints, pour apprend les Event dispatcher et les interfaces. "
                         onClick={() => setStealSimulator(true)}
                         tags={["Unreal", "Blueprint"]}
                     />
