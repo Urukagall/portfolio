@@ -1,5 +1,4 @@
 ﻿import { useState } from 'react'
-import reactLogo from './assets/react.svg'
 import './App.css'
 import Container from 'react-bootstrap/Container';
 import Navbar from 'react-bootstrap/Navbar';
@@ -13,7 +12,7 @@ function NavBar() {
             <Navbar expand="lg" className="NavBarHomePage" fixed="top" >
                 <Container>
                     <Navbar.Toggle aria-controls="basic-navbar-nav"/>
-                    <Navbar.Collapse id="basic-navbar-nav">
+                    <Navbar.Collapse id="basic-navbar-nav" role="navigation">
                         <Nav className="me-auto text-color">
                             <Nav.Link href="#Home">Accueil</Nav.Link>
                             <Nav.Link href="#about">A Propos</Nav.Link>
