@@ -456,7 +456,7 @@ function Project() {
                     <ProjectCard
                         title="Stage (2025)"
                         image={CommingSoon}
-                        description="Comming soon"
+                        description="Coming soon"
                     />
                     <ProjectCard
                         title="Steal Simulator (Unreal Engine 5)"
