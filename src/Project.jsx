@@ -10,6 +10,7 @@ import CiteDesPixels from "./assets/Img/Cite_Des_Pixels.png";
 import StarCluster from "./assets/Img/StarCluster.png";
 import CommingSoon from "./assets/Img/CommingSoon.png";
 import StealSimulator from "./assets/Img/Steal_Simulator.png";
+import FFTPNG from "./assets/Img/FFT.png";
 import React from "react";
 
 function UCaveModal(props) {
@@ -333,6 +334,47 @@ function PortalModal(props) {
     );
 }
 
+function FFTModal(props) {
+    return (
+        <Modal
+            {...props}
+            size="lg"
+            aria-labelledby="contained-modal-title-vcenter"
+            centered
+        >
+            <Modal.Header>
+                <Modal.Title id="contained-modal-title-vcenter" className="text-white">
+                    Tennis Player AI - Fédération Française de Tennis
+                </Modal.Title>
+            </Modal.Header>
+            <Modal.Body>
+                <div className="text-center">
+                    <iframe width="560" height="315" src="https://www.youtube.com/embed/Gr52DT-drLg?si=YxxbCRCbK2UVkxNq"
+                            title="YouTube video player" frameBorder="0"
+                            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                            referrerPolicy="strict-origin-when-cross-origin"
+                            allowFullScreen>
+                    </iframe>
+                </div>
+                <p className="text-white modal-text">
+                    Dans le cadre d'un stage de 4 mois au sein de la Fédération Française de Tennis (FFT), j'ai eu pour mission de concevoir et programmer des comportements d'intelligence artificielle autonomes et crédibles pour des joueurs de tennis sous Unity (C#).<br/><br/>
+
+                    L'IA doit analyser en continu la trajectoire, la vitesse et le rebond de la balle afin de calculer son positionnement sur le court, le timing d'impact et le choix du coup à renvoyer (lift, slice, amorti, lob).<br/><br/>
+                    J'ai structuré la logique autour d'une machine à états gérant les différentes phases de jeu (replacement, course d'anticipation, préparation de la raquette et frappe), tout en intégrant des variations de précision et de temps de réaction pour simuler différents profils et niveaux de jeu.<br/><br/>
+
+                    Cette expérience en conditions professionnelles m'a permis d'approfondir le calcul vectoriel, la prédiction physique et l'architecture d'IA de gameplay sous Unity. J'ai également documenté l'intégralité du code et de l'architecture technique afin d'assurer une passation claire et conforme au cahier des charges de la fédération.<br/><br/>
+
+                    Moteur: Unity<br/>
+                    Durée: 4 mois
+                </p>
+            </Modal.Body>
+            <Modal.Footer>
+                <Button onClick={props.onHide}>Close</Button>
+            </Modal.Footer>
+        </Modal>
+    );
+}
+
 
 function ProjectCard({ title, image, description, onClick, tags = [] }) {
     return (
@@ -363,6 +405,8 @@ function Project() {
     const [starClusterModalShow, setStarClusterModalShow] = React.useState(false);
     const [portalModalShow, setPortalModalShow] = React.useState(false);
     const [stealSimulator, setStealSimulator] = React.useState(false);
+    const [FFT, setFFT] = React.useState(false);
+
 
   return (
     <>
@@ -394,6 +438,10 @@ function Project() {
         <StealSimulatorModal
             show={stealSimulator}
             onHide={() => setStealSimulator(false)}
+        />
+        <FFTModal
+            show={FFT}
+            onHide={() => setFFT(false)}
         />
 
         <div id="projet" className="d-flex justify-content-center align-items-center flex-column padding-part">
@@ -440,7 +488,7 @@ function Project() {
                     <p className="date-timeline">2025</p>
                     <p className="date-timeline">2025</p>
                     <ProjectCard
-                        title="Portal (Unreal Engine 5)"
+                        title="Portal"
                         image={Portal}
                         description="Une reconstitution du jeu Portal sur Unreal Engine en Blueprints, pour découvrir le moteur et ses mécaniques visuelles."
                         onClick={() => setPortalModalShow(true)}
@@ -454,12 +502,14 @@ function Project() {
                         tags={["Unity", "Mobile"]}
                     />
                     <ProjectCard
-                        title="Stage (2025)"
-                        image={CommingSoon}
-                        description="Coming soon"
+                        title="Tennis Player AI (Stage)"
+                        image={FFTPNG}
+                        description="Développement d'intelligences artificielles pour joueurs de tennis virtuels sous Unity (C#) dans le cadre d'un stage pour la Fédération Française de Tennis, axé sur l'anticipation de trajectoire et la prise de décision en temps réel."
+                        onClick={() => setFFT(true)}
+                        tags={["Unity", "IA"]}
                     />
                     <ProjectCard
-                        title="Steal Simulator (Unreal Engine 5)"
+                        title="Steal Simulator"
                         image={StealSimulator}
                         description="Une reconstitution du jeu Thief Simulator sur Unreal Engine en Blueprints, pour apprend les Event dispatcher et les interfaces. "
                         onClick={() => setStealSimulator(true)}
