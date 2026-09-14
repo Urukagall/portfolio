@@ -1,8 +1,9 @@
 import './App.css';
 import Container from 'react-bootstrap/Container';
 import Navbar from 'react-bootstrap/Navbar';
-import { Nav } from 'react-bootstrap';
+import {Button, Nav} from 'react-bootstrap';
 import { useI18n } from './i18n/useI18n.js';
+import React from "react";
 
 function NavBar() {
     const { locale, toggleLanguage, t } = useI18n();
@@ -18,14 +19,15 @@ function NavBar() {
                         <Nav.Link href="#competences">{t('nav.skills')}</Nav.Link>
                         <Nav.Link href="#projet">{t('nav.projects')}</Nav.Link>
                     </Nav>
-                    <button
-                        type="button"
-                        className="btn btn-outline-light btn-sm ms-auto"
-                        onClick={toggleLanguage}
-                        aria-label={t('nav.switchLanguage')}
-                    >
-                        {locale === 'fr' ? 'EN' : 'FR'}
-                    </button>
+                    {/*<Button*/}
+                    {/*    // type="button"*/}
+                    {/*    // className="btn btn-outline-light btn-sm ms-auto"*/}
+                    {/*    onClick={toggleLanguage}*/}
+                    {/*    // aria-label={t('nav.switchLanguage')}*/}
+                    {/*>*/}
+                    {/*    {locale === 'fr' ? 'EN' : 'FR'}*/}
+                    {/*</Button>*/}
+                    <Button onClick={toggleLanguage}>{locale === 'fr' ? 'Anglais' : 'French'}</Button>
                 </Navbar.Collapse>
             </Container>
         </Navbar>
